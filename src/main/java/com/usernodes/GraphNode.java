@@ -14,9 +14,9 @@ package com.usernodes;
  */
 public class GraphNode {
     public int nodeID;
-    public int number;
-    public String name;
-    public String username;
+    // public int number;
+    // public String name;
+    // public String username;
     public double size;
     public double distance;
     //public String[][] keywords;
@@ -35,12 +35,14 @@ public class GraphNode {
      * @param size
      * @param distance
      */
-    public GraphNode(int nodeID, String name, double size, double distance){
+    public GraphNode(int nodeID,/* String name,*/ double size, double distance){
         this.nodeID = nodeID;
-        this.name = name;
+        //this.name = name;
         this.size = size;
         this.distance = distance;   
     }
+
+    
 
 }
 
