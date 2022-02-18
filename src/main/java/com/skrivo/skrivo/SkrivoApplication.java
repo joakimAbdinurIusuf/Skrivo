@@ -1,5 +1,7 @@
 package com.skrivo.skrivo;
 
+import com.usernodes.GraphNode;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,8 @@ public class SkrivoApplication {
 	}
 
 	@GetMapping
-	public String hello(){
-		return "Hello World!";
+	public GraphNode hello(){
+		return new GraphNode(134, 0.5, 3.6);
 	}
 
 }
