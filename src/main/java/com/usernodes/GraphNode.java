@@ -1,5 +1,7 @@
 package com.usernodes;
 
+
+
 /** A node in the network graph (not the center node)
  * @author Edvin Nordling
  * @since 1.0 (???)
@@ -12,13 +14,16 @@ package com.usernodes;
  * mean that they are calculated with a method in the constructor), or if they should be calculated
  * everytime they are called.
  */
+
 public class GraphNode {
     public int nodeID;
     // public int number;
     // public String name;
     // public String username;
     public double size;
-    public double distance;
+    public double x;
+    public double y;
+    //public double distance;
     //public String[][] keywords;
 
     /** "Default" constructor
@@ -30,19 +35,12 @@ public class GraphNode {
 
     /** Constructor
      * 
-     * @param nodeID
-     * @param name
-     * @param size
-     * @param distance
      */
-    public GraphNode(int nodeID,/* String name,*/ double size, double distance){
+    public GraphNode(int nodeID, double size, double distance, double angle){
         this.nodeID = nodeID;
-        //this.name = name;
         this.size = size;
-        this.distance = distance;   
+        this.x = Math.cos(angle) * distance; 
+        this.y = Math.sin(angle) * distance;
     }
-
-    
-
 }
 
