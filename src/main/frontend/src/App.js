@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import UC from './components/UC'
+import UC from './components/UserComponent'
 
 function App() {
   return (
