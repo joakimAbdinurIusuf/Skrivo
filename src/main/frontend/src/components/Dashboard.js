@@ -1,44 +1,48 @@
 import "./Dashboard.css";
 import { Button, Col, Row } from "react-bootstrap";
 import NetworkGraph from "./NetworkGraph";
+import React from "react";
+import Flow from "./Flow";
 
-function Dashboard() {
-  return (
-    <div className={"Outer-border"}>
-      <div className="sidenav">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-      </div>
+class Dashboard extends React.Component {
+  state = {};
+  render() {
+    return (
+      <div className={"Outer-border"}>
+        <div className="sidenav">
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
 
-      <div className="content">
-        <Row>
-          <Col>
-            <Col className={"Navigation-buttons-column"}>
-              <Button size={"lg"} className={"Navigation-button"}>
-                Network
-              </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
-                Completed tasks
-              </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
-                Notifications
-              </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
-                Reports
-              </Button>
+        <div className="content">
+          <Row>
+            <Col>
+              <Col className={"Navigation-buttons-column"}>
+                <Button size={"lg"} className={"Navigation-button"}>
+                  Network
+                </Button>
+                <Button size={"lg"} className={"Navigation-button"}>
+                  Completed tasks
+                </Button>
+                <Button size={"lg"} className={"Navigation-button"}>
+                  Notifications
+                </Button>
+                <Button size={"lg"} className={"Navigation-button"}>
+                  Reports
+                </Button>
+              </Col>
+              <Col className={"Network-graph"}>
+                <Flow />
+              </Col>
             </Col>
-            <Col className={"Network-graph"}>
-              <h1>Network Graph</h1>
-              <NetworkGraph />
+            <Col xl={4} className={"Word-cloud"}>
+              <h1>Word Cloud</h1>
             </Col>
-          </Col>
-          <Col xl={4} className={"Word-cloud"}>
-            <h1>Word Cloud</h1>
-          </Col>
-        </Row>
+          </Row>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 export default Dashboard;
