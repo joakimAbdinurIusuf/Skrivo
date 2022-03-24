@@ -26,13 +26,6 @@ public class GraphNode {
     //public double distance;
     //public String[][] keywords;
 
-    /** "Default" constructor
-     * 
-     */
-    public GraphNode(){
-    }
-
-
     /** Constructor
      * 
      */
