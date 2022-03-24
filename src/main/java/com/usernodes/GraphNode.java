@@ -18,11 +18,6 @@ public class GraphNode {
     private double size;
     private double x;
     private double y;
-    // public int number;
-    // public String name;
-    // public String username;
-    //public double distance;
-    //public String[][] keywords;
 
     /**
      * Constructor with nodeID
@@ -41,6 +36,48 @@ public class GraphNode {
         this.size = size;
         this.x = x;
         this.y = y;
+    }
+
+    public int getNodeID() {
+        return nodeID;
+    }
+
+    public void setNodeID(int nodeID) {
+        this.nodeID = nodeID;
+    }
+
+    public double getSize() {
+        return size;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "GraphNode{" +
+                "nodeID=" + nodeID +
+                ", size=" + size +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
 
