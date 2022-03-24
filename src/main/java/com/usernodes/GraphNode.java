@@ -1,9 +1,7 @@
 package com.usernodes;
 
-
-
 /** A node in the network graph (not the center node)
- * @author Edvin Nordling
+ * @author Edvin Nordling, Joakim Abdinur Iusuf
  * @since 1.0 (???)
  * 
  * The fields of the class are based on the data in the database.
@@ -16,24 +14,33 @@ package com.usernodes;
  */
 
 public class GraphNode {
-    public int nodeID;
+    private int nodeID;
+    private double size;
+    private double x;
+    private double y;
     // public int number;
     // public String name;
     // public String username;
-    public double size;
-    public double x;
-    public double y;
     //public double distance;
     //public String[][] keywords;
 
-    /** Constructor
-     * 
+    /**
+     * Constructor with nodeID
      */
     public GraphNode(int nodeID, double size, double distance, double angle){
         this.nodeID = nodeID;
         this.size = size;
-        this.x = Math.cos(angle) * distance; 
-        this.y = Math.sin(angle) * distance;
+        x = Math.cos(angle) * distance;
+        y = Math.sin(angle) * distance;
+    }
+
+    /**
+     * Constructor without nodeID
+     */
+    public GraphNode(double size, double x, double y) {
+        this.size = size;
+        this.x = x;
+        this.y = y;
     }
 }
 

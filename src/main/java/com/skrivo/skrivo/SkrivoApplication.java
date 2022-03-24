@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class SkrivoApplication {
@@ -16,8 +18,15 @@ public class SkrivoApplication {
 	}
 
 	@GetMapping
-	public GraphNode hello(){
-		return new GraphNode(134, 0.5, 3.6);
+	public List<GraphNode> hello(){
+		return List.of(new GraphNode(134, 0.5, 3.6, 2.0));
 	}
+
+	/*
+	@GetMapping
+	public List<String> hello(){
+		return List.of("Hello", "World");
+	}
+	*/
 
 }
