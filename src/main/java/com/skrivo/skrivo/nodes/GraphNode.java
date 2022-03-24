@@ -1,12 +1,9 @@
 package com.skrivo.skrivo.nodes;
 
-/** A node in the network graph (not the center node)
+/**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
- * @since 1.0 (???)
  *
- * The fields of the class are based on the data in the database.
- *
- * To be added: The class needs to have an angle that locates the node toghether with
+ * TODO: The class needs to have an angle that locates the node toghether with
  * the 'distance' field as polar coordinates. Should convert the polar coordinates to cartesian
  * coordinates. Not sure if the cartesian coordinates should be a field in the class (which would
  * mean that they are calculated with a method in the constructor), or if they should be calculated
@@ -22,7 +19,7 @@ public class GraphNode {
     /**
      * Constructor with nodeID
      */
-    public GraphNode(int nodeID, double size, double distance, double angle){
+    public GraphNode(int nodeID, double size, double distance, double angle) {
         this.nodeID = nodeID;
         this.size = size;
         x = Math.cos(angle) * distance;
