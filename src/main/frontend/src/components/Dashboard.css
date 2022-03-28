@@ -68,3 +68,8 @@
   position: relative;
   background-color: rgb(114, 144, 241);
 }
+
+.react-flow__viewport {
+  height: 1000px;
+  width: 1000px;
+}
