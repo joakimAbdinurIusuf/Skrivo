@@ -9,5 +9,4 @@ public class SkrivoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SkrivoApplication.class, args);
 	}
-
 }
