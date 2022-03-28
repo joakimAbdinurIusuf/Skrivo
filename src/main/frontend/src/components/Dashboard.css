@@ -1,69 +1,70 @@
 .Outer-border {
-    background-color: gray;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    padding:10px;
+  background-color: ;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 /* Side navigation links */
 .sidenav a {
-    color: white;
-    padding: 16px;
-    text-decoration: none;
-    display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
 }
 
 /* Change color on hover */
 .sidenav a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Style the content */
 .content {
-    margin-left: 200px;
-    margin-right: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
+  margin-left: 200px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .sidenav {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
 }
 
 .Navigation-buttons-column {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
 .Navigation-button {
-    margin: 15px;
-    border: 1px solid black;
-
+  margin: 15px;
+  border: 1px solid black;
 }
 
 .Graphs {
-    margin: 10px;
-    padding: 20px;
-
+  margin: 10px;
+  padding: 20px;
 }
 
 .Network-graph {
-    margin-top: 10px;
-    text-align: center;
-    height: 650px;
+  height: 500px;
 }
 
 .Word-cloud {
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.react-flow {
+  margin: 0;
+  position: relative;
+  background-color: rgb(114, 144, 241);
 }

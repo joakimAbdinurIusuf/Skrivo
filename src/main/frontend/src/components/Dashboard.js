@@ -1,20 +1,17 @@
-import "./Dashboard.css";
 import { Button, Col, Row } from "react-bootstrap";
-import NetworkGraph from "./NetworkGraph";
 import React from "react";
 import Flow from "./Flow";
+import wordcloud from "./images/Steve.png"
+import { Image } from "react-bootstrap";
+import Sidebar from "./Sidebar";
+import "./Dashboard.css";
 
 class Dashboard extends React.Component {
   state = {};
   render() {
     return (
       <div className={"Outer-border"}>
-        <div className="sidenav">
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-        </div>
-
+        <Sidebar/>
         <div className="content">
           <Row>
             <Col>
@@ -38,6 +35,7 @@ class Dashboard extends React.Component {
             </Col>
             <Col xl={4} className={"Word-cloud"}>
               <h1>Word Cloud</h1>
+              <Image src={wordcloud} fluid/>
             </Col>
           </Row>
         </div>
