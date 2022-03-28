@@ -1,0 +1,89 @@
+.Sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 160px;
+  background-color: rgb(192, 208, 241);
+}
+
+.SidebarList {
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  cursor: pointer;
+  width: 100%;
+  height: 45px;
+  color: rgb(0, 0, 0);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 13px;
+  text-align: left;
+}
+
+.SideBarTopLine {
+  position: absolute;
+  width: 85%;
+  top: 55%;
+  left: 7%;
+  color: black;
+}
+
+.SideBarTop {
+  position: relative;
+  width: 160px;
+  background-color: rgb(192, 208, 241);
+  height: 60px;
+}
+
+.profile {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+.SideBarBot {
+  position: relative;
+  width: 160px;
+  background-color: rgb(192, 208, 241);
+  height: 4.5%;
+}
+
+.SideBarBotLine {
+  position: absolute;
+  width: 85%;
+  left: 7%;
+  color: black;
+  bottom: 100%;
+}
+
+.settingsParagraph {
+  position: absolute;
+  color: grey;
+  left: 23%;
+  font-size: 14px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.sidebar-bottom {
+  position: absolute;
+  width: 100%;
+  background-color: rgb(192, 208, 241);
+  bottom: 0%;
+  height: 45px;
+  position: absolute;
+}
+
+.nightMode {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.help {
+  color: black;
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  font-size: 12px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
