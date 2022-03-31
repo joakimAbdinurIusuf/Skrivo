@@ -1,7 +1,17 @@
 package com.skrivo.skrivo.nodes;
 
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.List;
+import java.util.Scanner;
+
+import com.google.gson.Gson;
+
+
 /**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
+ * @author Sebaztian Johansson, Zebastian Kensert Forsman
  *
  * TODO: The class needs to have an angle that locates the node toghether with
  * the 'distance' field as polar coordinates. Should convert the polar coordinates to cartesian
@@ -11,36 +21,63 @@ package com.skrivo.skrivo.nodes;
  */
 
 public class GraphNode {
-    private int nodeID;
+    private int node_id;
+    private int number;
+    private String name;
+    private String username;
     private double size;
-    private double x;
-    private double y;
+    private double distance;
+    private Keywords keywords;
 
-    /**
-     * Constructor with nodeID
-     */
-    public GraphNode(int nodeID, double size, double distance, double angle) {
-        this.nodeID = nodeID;
-        this.size = size;
-        x = Math.cos(angle) * distance;
-        y = Math.sin(angle) * distance;
+    public class Keywords {
+        private List<String> words;
+        private List<Integer> frequency;
+
+        public List<String> getWords() {
+            return words;
+        }
+        public void setWords(List<String> words) {
+            this.words = words;
+        }
+        public List<Integer> getFrequency() {
+            return frequency;
+        }
+        public void setFrequency(List<Integer> frequency) {
+            this.frequency = frequency;
+        }
     }
 
-    /**
-     * Constructor without nodeID
-     */
-    public GraphNode(double size, double x, double y) {
-        this.size = size;
-        this.x = x;
-        this.y = y;
+    
+    public int getNode_id() {
+        return node_id;
     }
 
-    public int getNodeID() {
-        return nodeID;
+    public void setNode_id(int node_id) {
+        this.node_id = node_id;
     }
 
-    public void setNodeID(int nodeID) {
-        this.nodeID = nodeID;
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public double getSize() {
@@ -51,29 +88,28 @@ public class GraphNode {
         this.size = size;
     }
 
-    public double getX() {
-        return x;
+    public double getDistance() {
+        return distance;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 
-    public double getY() {
-        return y;
+    public Keywords getKeywords() {
+        return keywords;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setKeywords(Keywords keywords) {
+        this.keywords = keywords;
     }
 
     @Override
     public String toString() {
         return "GraphNode{" +
-                "nodeID=" + nodeID +
-                ", size=" + size +
-                ", x=" + x +
-                ", y=" + y +
+                "nodeID=" + getNode_id() +
+                ", size=" + getSize() +
+                ", distance=" + getDistance() +
                 '}';
     }
 }

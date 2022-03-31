@@ -18,8 +18,18 @@ public class GraphNodeController {
         this.graphNodeService = graphNodeService;
     }
 
+    public NetworkUserList getNetworkUserList(){
+        return graphNodeService.getNetworkUserList();
+    }
+
     @GetMapping
-    public List<GraphNode> getNodes(){
-        return graphNodeService.getNodes();
+    public List<GraphNode> getNodes() {
+        return getNodesOfNetworkUser(getNetworkUserList(), 0);
+    }
+
+    public List<GraphNode> getNodesOfNetworkUser(NetworkUserList networkUserList, int index) {
+        NetworkUserList.NetworkUser networkUser = networkUserList.getNetworkUser(index);
+        List<GraphNode> graphNodes = networkUser.getNodes();
+        return graphNodes;
     }
 }
