@@ -1,4 +1,4 @@
-# HOW TO START WEBSITE
+# HOW TO START THE WEBSITE
 Step 1: Install Node.js for your OS
 
 Step 2: Clone repo
