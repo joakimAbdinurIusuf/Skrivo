@@ -1,11 +1,21 @@
-# NPM INSTALL
+# HOW TO START WEBSITE
+Step 1: Install Node.js for your OS
 
-`npm i react-flow-renderer`
-`npm i react-bootstrap`
-`npm i @emotion/react`
-`npm i @mui/icons-material`
+Step 2: Clone repo
 
-# DEPEND
+Step 3: Open a terminal and navigate to scr/main/frontend/scr
+
+Step 4: Run the following commands;
+`npm install`\
+`npm i react-flow-renderer`\
+`npm i react-bootstrap`\
+`npm i @emotion/react`\
+`npm i @mui/icons-material`\
+
+Step 5:
+open the website by running `npm start` \
+
+# Dependencies 
 `
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
