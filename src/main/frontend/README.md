@@ -13,7 +13,7 @@ Step 4: Run the following commands;
 `npm i @mui/icons-material`
 
 Step 5:
-open the website by running `npm start`
+open the website by typing `npm start` in the terminal
 
 # Dependencies 
 `
