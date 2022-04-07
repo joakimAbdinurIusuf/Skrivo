@@ -5,7 +5,7 @@ Step 2: Clone repo
 
 Step 3: Open a terminal and navigate to scr/main/frontend/scr
 
-Step 4: Run the following commands;
+Step 4: Run the following commands;\
 `npm install`\
 `npm i react-flow-renderer`\
 `npm i react-bootstrap`\
