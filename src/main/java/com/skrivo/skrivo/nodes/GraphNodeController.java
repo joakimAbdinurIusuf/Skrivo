@@ -27,6 +27,6 @@ public class GraphNodeController {
 
     @GetMapping(path = "api/wordcloud")
     public GraphNode fetchAllWordsAndFrequencies(){
-        return graphNodeService.getWordsAndFrequenciesForOneNode("6251fd86305d5a477abd1d1f");
+        return graphNodeService.getWordsAndFrequenciesForOneNode("6252006afe711835a19343a1");
     }
 }
