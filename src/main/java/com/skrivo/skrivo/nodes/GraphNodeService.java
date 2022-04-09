@@ -1,7 +1,9 @@
 package com.skrivo.skrivo.nodes;
 
 import lombok.AllArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
@@ -10,8 +12,16 @@ import java.util.List;
 public class GraphNodeService {
 
     private final GraphNodeRepository graphNodeRepository;
+    MongoTemplate mongoTemplate;
 
     public List<GraphNode> getAllNodes() {
-        return graphNodeRepository.findAll();
+        Query query = new Query();
+        query.fields().exclude("words").exclude("wordFrequency");
+        List<GraphNode> graphNodes = mongoTemplate.find(query, GraphNode.class);
+        return graphNodes;
+    }
+
+    public GraphNode getWordsAndFrequenciesForOneNode(String id) {
+        return graphNodeRepository.findGraphNodeById(id);
     }
 }

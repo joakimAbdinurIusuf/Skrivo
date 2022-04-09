@@ -11,7 +11,6 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping(path = "api/nodes")
 public class GraphNodeController {
 
     private final GraphNodeService graphNodeService;
@@ -21,8 +20,13 @@ public class GraphNodeController {
         this.graphNodeService = graphNodeService;
     }
 
-    @GetMapping
+    @GetMapping(path = "api/nodes")
     public List<GraphNode> fetchAllNodes(){
         return graphNodeService.getAllNodes();
+    }
+
+    @GetMapping(path = "api/wordcloud")
+    public GraphNode fetchAllWordsAndFrequencies(){
+        return graphNodeService.getWordsAndFrequenciesForOneNode("6251fd86305d5a477abd1d1f");
     }
 }
