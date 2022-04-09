@@ -19,18 +19,8 @@ public class GraphNode {
      */
     public GraphNode(double size, double distance, double angle) {
         this.size = size;
-        x = Math.cos(angle) * distance;
-        y = Math.sin(angle) * distance;
-    }
-
-    /**
-     * Constructor with nodeID
-     */
-    public GraphNode(String id, double size, double distance, double angle) {
-        this.id = id;
-        this.size = size;
-        x = Math.cos(angle) * distance;
-        y = Math.sin(angle) * distance;
+        x = Math.cos(angle) * distance * 100;
+        y = Math.sin(angle) * distance * 100;
     }
 
     public String getId() {

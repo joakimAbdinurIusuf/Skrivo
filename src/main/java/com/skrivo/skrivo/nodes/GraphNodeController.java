@@ -1,5 +1,6 @@
 package com.skrivo.skrivo.nodes;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class GraphNodeController {
     }
 
     @GetMapping
-    public List<GraphNode> getNodes(){
-        return graphNodeService.getNodes();
+    public List<GraphNode> fetchAllNodes(){
+        return graphNodeService.getAllNodes();
     }
 }
