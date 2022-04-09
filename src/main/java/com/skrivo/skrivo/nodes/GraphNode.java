@@ -1,12 +1,16 @@
 package com.skrivo.skrivo.nodes;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
  */
+@Data
 @Document
+@NoArgsConstructor
 public class GraphNode {
     @Id
     private String id;
@@ -21,14 +25,6 @@ public class GraphNode {
         this.size = size;
         x = Math.cos(angle) * distance * 100;
         y = Math.sin(angle) * distance * 100;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public double getSize() {
