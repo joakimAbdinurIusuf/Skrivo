@@ -1,46 +1,44 @@
 package com.skrivo.skrivo.nodes;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
- *
- * TODO: The class needs to have an angle that locates the node toghether with
- * the 'distance' field as polar coordinates. Should convert the polar coordinates to cartesian
- * coordinates. Not sure if the cartesian coordinates should be a field in the class (which would
- * mean that they are calculated with a method in the constructor), or if they should be calculated
- * everytime they are called.
  */
-
+@Document
 public class GraphNode {
-    private int nodeID;
+    @Id
+    private String id;
     private double size;
     private double x;
     private double y;
 
     /**
-     * Constructor with nodeID
+     * Constructor without nodeID
      */
-    public GraphNode(int nodeID, double size, double distance, double angle) {
-        this.nodeID = nodeID;
+    public GraphNode(double size, double distance, double angle) {
         this.size = size;
         x = Math.cos(angle) * distance;
         y = Math.sin(angle) * distance;
     }
 
     /**
-     * Constructor without nodeID
+     * Constructor with nodeID
      */
-    public GraphNode(double size, double x, double y) {
+    public GraphNode(String id, double size, double distance, double angle) {
+        this.id = id;
         this.size = size;
-        this.x = x;
-        this.y = y;
+        x = Math.cos(angle) * distance;
+        y = Math.sin(angle) * distance;
     }
 
-    public int getNodeID() {
-        return nodeID;
+    public String getId() {
+        return id;
     }
 
-    public void setNodeID(int nodeID) {
-        this.nodeID = nodeID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public double getSize() {
@@ -70,7 +68,7 @@ public class GraphNode {
     @Override
     public String toString() {
         return "GraphNode{" +
-                "nodeID=" + nodeID +
+                "nodeID=" + id +
                 ", size=" + size +
                 ", x=" + x +
                 ", y=" + y +
