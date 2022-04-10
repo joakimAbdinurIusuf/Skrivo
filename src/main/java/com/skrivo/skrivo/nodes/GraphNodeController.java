@@ -19,12 +19,12 @@ public class GraphNodeController {
     }
 
     @GetMapping(path = "api/nodes")
-    public List<GraphNode> fetchAllNodes(){
+    public List<GraphNode> fetchAllNodes() {
         return graphNodeService.getAllNodes();
     }
 
     @GetMapping(path = "api/wordcloud")
-    public GraphNode fetchAllWordsAndFrequencies(){
+    public GraphNode fetchAllWordsAndFrequencies() {
         return graphNodeService.getWordsAndFrequenciesForOneNode("6252006afe711835a19343a1");
     }
 }
