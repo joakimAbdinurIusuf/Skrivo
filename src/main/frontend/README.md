@@ -10,6 +10,7 @@ Step 4: Run the following commands;\
 `npm i react-flow-renderer`\
 `npm i react-bootstrap`\
 `npm i @emotion/react`\
+`npm i @emotion/styled`\
 `npm i @mui/icons-material`
 
 Step 5:
