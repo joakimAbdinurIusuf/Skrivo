@@ -14,11 +14,6 @@ public class GraphNodeService {
     private final GraphNodeRepository graphNodeRepository;
     MongoTemplate mongoTemplate;
 
-    public GraphNodeService(GraphNodeRepository graphNodeRepository, MongoTemplate mongoTemplate) {
-        this.graphNodeRepository = graphNodeRepository;
-        this.mongoTemplate = mongoTemplate;
-    }
-
     public List<GraphNode> getAllNodes() {
         Query query = new Query();
         query.fields().exclude("words").exclude("wordFrequency");
