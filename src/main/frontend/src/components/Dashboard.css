@@ -1,5 +1,4 @@
 .Outer-border {
-  /*background-color: ; TODO: Syntax error, fix this.*/
   height: 100%;
   width: 100%;
   position: absolute;
@@ -59,7 +58,6 @@
 
 .Word-cloud {
   margin: 10px;
-  padding: 20px;
   text-align: center;
 }
 
@@ -72,4 +70,17 @@
 .react-flow__viewport {
   height: 1000px;
   width: 1000px;
+}
+
+.react-flow__handle-bottom {
+  top: 50%;
+
+}
+
+.react-flow__handle-top {
+  top: 50%;
+}
+
+.react-flow__handle {
+  opacity: 0;
 }
