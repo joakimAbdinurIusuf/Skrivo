@@ -1,115 +1,109 @@
 package com.skrivo.skrivo.nodes;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.List;
-import java.util.Scanner;
-
-import com.google.gson.Gson;
-
+import java.util.Objects;
 
 /**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
- * @author Sebaztian Johansson, Zebastian Kensert Forsman
- *
- * TODO: The class needs to have an angle that locates the node toghether with
- * the 'distance' field as polar coordinates. Should convert the polar coordinates to cartesian
- * coordinates. Not sure if the cartesian coordinates should be a field in the class (which would
- * mean that they are calculated with a method in the constructor), or if they should be calculated
- * everytime they are called.
  */
-
+@Data
+@Document
+@NoArgsConstructor
 public class GraphNode {
-    private int node_id;
-    private int number;
-    private String name;
-    private String username;
+    @Id
+    private String id;
     private double size;
-    private double distance;
-    private Keywords keywords;
+    private double x;
+    private double y;
+    private List<String> words;
+    private List<Integer> wordFrequency;
 
-    public class Keywords {
-        private List<String> words;
-        private List<Integer> frequency;
-
-        public List<String> getWords() {
-            return words;
-        }
-        public void setWords(List<String> words) {
-            this.words = words;
-        }
-        public List<Integer> getFrequency() {
-            return frequency;
-        }
-        public void setFrequency(List<Integer> frequency) {
-            this.frequency = frequency;
-        }
+    /**
+     * Constructor without nodeID
+     */
+    public GraphNode(double size, double distance, double angle, List<String> words, List<Integer> wordFrequency) {
+        this.size = size;
+        x = Math.cos(angle) * distance * 100;
+        y = Math.sin(angle) * distance * 100;
+        this.words = words;
+        this.wordFrequency = wordFrequency;
     }
 
-    
-    public int getNode_id() {
-        return node_id;
-    }
-
-    public void setNode_id(int node_id) {
-        this.node_id = node_id;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public String getId() {
+        return id;
     }
 
     public double getSize() {
         return size;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public List<String> getWords() {
+        return words;
+    }
+
+    public List<Integer> getWordFrequency() {
+        return wordFrequency;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setSize(double size) {
         this.size = size;
     }
 
-    public double getDistance() {
-        return distance;
+    public void setX(double x) {
+        this.x = x;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
+    public void setY(double y) {
+        this.y = y;
     }
 
-    public Keywords getKeywords() {
-        return keywords;
+    public void setWords(List<String> words) {
+        this.words = words;
     }
 
-    public void setKeywords(Keywords keywords) {
-        this.keywords = keywords;
+    public void setWordFrequency(List<Integer> wordFrequency) {
+        this.wordFrequency = wordFrequency;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GraphNode graphNode = (GraphNode) o;
+        return Double.compare(graphNode.size, size) == 0 && Double.compare(graphNode.x, x) == 0 && Double.compare(graphNode.y, y) == 0 && Objects.equals(id, graphNode.id) && Objects.equals(words, graphNode.words) && Objects.equals(wordFrequency, graphNode.wordFrequency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, size, x, y, words, wordFrequency);
     }
 
     @Override
     public String toString() {
         return "GraphNode{" +
-                "nodeID=" + getNode_id() +
-                ", size=" + getSize() +
-                ", distance=" + getDistance() +
+                "id='" + id + '\'' +
+                ", size=" + size +
+                ", x=" + x +
+                ", y=" + y +
+                ", words=" + words +
+                ", wordFrequency=" + wordFrequency +
                 '}';
     }
 }
