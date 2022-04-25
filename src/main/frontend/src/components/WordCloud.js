@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactWordcloud from 'react-wordcloud';
 
 const options = {
@@ -198,10 +198,9 @@ const words = [
     }
 ];
 
-
-
 function WordCloud() {
-    return <ReactWordcloud words={words} options={options}/>
+    const [state, setState] = useState({words:[{text:"HEJ",value:40}]})
+    return <ReactWordcloud words={state.words} options={options}/>
 }
 
 export default WordCloud;

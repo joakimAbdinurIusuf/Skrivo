@@ -1,9 +1,199 @@
-import { useState } from "react";
-import ReactFlow , {Controls} from "react-flow-renderer";
+import React, { useState } from "react";
+import ReactFlow , {useNodesState,
+	useEdgesState,Controls} from "react-flow-renderer";
 import "./Dashboard.css";
 
 const initialNodes = [
-  {id:"1", type:"input", data:{label:"center node"}, position:{x:500,y:300},style: {
+  {id:"1", type:"input", data:{label:"center node",words: [
+			  {
+				  text: "In",
+				  value: "64"
+			  },
+			  {
+				  text: "Duis",
+				  value: "78"
+			  },
+			  {
+				  text: "lorem,",
+				  value: "32"
+			  },
+			  {
+				  text: "interdum",
+				  value: "50"
+			  },
+			  {
+				  text: "Quisque",
+				  value: "98"
+			  },
+			  {
+				  text: "arcu",
+				  value: "73"
+			  },
+			  {
+				  text: "convallis",
+				  value: "46"
+			  },
+			  {
+				  text: "Suspendisse",
+				  value: "18"
+			  },
+			  {
+				  text: "molestie",
+				  value: "91"
+			  },
+			  {
+				  text: "Aliquam",
+				  value: "73"
+			  },
+			  {
+				  text: "lectus",
+				  value: "41"
+			  },
+			  {
+				  text: "quis",
+				  value: "22"
+			  },
+			  {
+				  text: "est",
+				  value: "37"
+			  },
+			  {
+				  text: "ullamcorper",
+				  value: "71"
+			  },
+			  {
+				  text: "arcu",
+				  value: "37"
+			  },
+			  {
+				  text: "quis,",
+				  value: "10"
+			  },
+			  {
+				  text: "Nullam",
+				  value: "66"
+			  },
+			  {
+				  text: "luctus",
+				  value: "88"
+			  },
+			  {
+				  text: "vulputate",
+				  value: "31"
+			  },
+			  {
+				  text: "eros.",
+				  value: "26"
+			  },
+			  {
+				  text: "porttitor",
+				  value: "76"
+			  },
+			  {
+				  text: "molestie",
+				  value: "15"
+			  },
+			  {
+				  text: "massa.",
+				  value: "64"
+			  },
+			  {
+				  text: "dui.",
+				  value: "25"
+			  },
+			  {
+				  text: "nec,",
+				  value: "66"
+			  },
+			  {
+				  text: "eleifend",
+				  value: "92"
+			  },
+			  {
+				  text: "eget",
+				  value: "65"
+			  },
+			  {
+				  text: "sit",
+				  value: "25"
+			  },
+			  {
+				  text: "natoque",
+				  value: "42"
+			  },
+			  {
+				  text: "consequat,",
+				  value: "19"
+			  },
+			  {
+				  text: "turpis",
+				  value: "60"
+			  },
+			  {
+				  text: "Sed",
+				  value: "33"
+			  },
+			  {
+				  text: "amet",
+				  value: "92"
+			  },
+			  {
+				  text: "sapien,",
+				  value: "67"
+			  },
+			  {
+				  text: "nec",
+				  value: "46"
+			  },
+			  {
+				  text: "augue",
+				  value: "92"
+			  },
+			  {
+				  text: "convallis",
+				  value: "79"
+			  },
+			  {
+				  text: "mauris,",
+				  value: "31"
+			  },
+			  {
+				  text: "adipiscing.",
+				  value: "32"
+			  },
+			  {
+				  text: "nunc,",
+				  value: "88"
+			  },
+			  {
+				  text: "tempor",
+				  value: "68"
+			  },
+			  {
+				  text: "in,",
+				  value: "14"
+			  },
+			  {
+				  text: "mi",
+				  value: "32"
+			  },
+			  {
+				  text: "dignissim",
+				  value: "86"
+			  },
+			  {
+				  text: "natoque",
+				  value: "93"
+			  },
+			  {
+				  text: "egestas",
+				  value: "80"
+			  },
+			  {
+				  text: "sociis",
+				  value: "32"
+			  }
+		  ]}, position:{x:500,y:300},style: {
 		width: 64,
 		height: 64,
 		borderRadius: 64,
@@ -100,13 +290,24 @@ const initialEdges = [
   { id: "e1-10", source: "1", target: "10", type: 'straight', style: edgeStyle },
 ];
 
+const onNodeClick = (event, node) => console.log('click node', node);
 
-function Flow() {
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
+const Flow = () => {
+	const [nodes] = useNodesState(initialNodes);
+	const [edges] = useEdgesState(initialEdges);
 
-  return <ReactFlow nodes={nodes} edges={edges} nodesDraggable={true}>
-  </ReactFlow>;
-}
+	const [captureElementClick] = useState(true);
+
+	return (
+		<ReactFlow
+			nodes={nodes}
+			edges={edges}
+			onNodeClick={captureElementClick ? onNodeClick : undefined}
+			fitView
+		>
+			<Controls/>
+		</ReactFlow>
+	);
+};
 
 export default Flow;

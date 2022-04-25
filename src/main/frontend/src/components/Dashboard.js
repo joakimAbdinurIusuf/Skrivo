@@ -1,6 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
 import React from "react";
 import Flow from "./Flow";
+import InteractionFlow from "./InteractionFlow";
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 import WordCloud from "./WordCloud";
