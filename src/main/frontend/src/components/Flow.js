@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ReactFlow , {useNodesState,
 	useEdgesState,Controls} from "react-flow-renderer";
 import "./Dashboard.css";
+import axios from "axios";
+
+const baseURL = "http://localhost:8080/api/nodes"
 
 const initialNodes = [
   {id:"1", type:"input", data:{label:"center node",words: [
@@ -290,13 +293,12 @@ const initialEdges = [
   { id: "e1-10", source: "1", target: "10", type: 'straight', style: edgeStyle },
 ];
 
-const onNodeClick = (event, node) => console.log('click node', node);
+function Flow(props) {
 
-const Flow = () => {
 	const [nodes] = useNodesState(initialNodes);
 	const [edges] = useEdgesState(initialEdges);
-
 	const [captureElementClick] = useState(true);
+	const onNodeClick = (event, node) => console.log("console log", props.nodes);
 
 	return (
 		<ReactFlow

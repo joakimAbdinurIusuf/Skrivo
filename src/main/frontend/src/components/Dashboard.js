@@ -5,9 +5,26 @@ import InteractionFlow from "./InteractionFlow";
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 import WordCloud from "./WordCloud";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL:'http://localhost:8080/api'
+})
 
 class Dashboard extends React.Component {
-  state = {};
+
+  state = {}
+  constructor() {
+    super();
+    api.get('/nodes').then(res => {
+      this.setState({nodes: res.data})
+      console.log(this.state.nodes)
+    })
+    api.get('/wordcloud').then(res => {
+      this.setState({words: res.data})
+      console.log(this.state.words)
+    })
+  }
   render() {
     return (
       <div className={"Outer-border"}>
@@ -30,11 +47,11 @@ class Dashboard extends React.Component {
                 </Button>
               </Col>
               <Col className={"Network-graph"}>
-                <Flow />
+                <Flow nodes={this.state.nodes}/>
               </Col>
             </Col>
             <Col xl={4} className={"Word-cloud"}>
-              <WordCloud/>
+              <WordCloud words={this.state.words}/>
             </Col>
           </Row>
         </div>
