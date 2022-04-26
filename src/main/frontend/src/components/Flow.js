@@ -5,13 +5,7 @@ import "./Dashboard.css";
 
 
 const initialNodes = [];
-const initialEdges = [
-	{
-		id: "e1-2",
-		source: "1",
-		target: "2"
-	}
-]
+const initialEdges = [];
 
 function createEdges(nodes) {
 	const edgeArray = [];
@@ -65,13 +59,13 @@ function createNodes(axiosNode) {
 	}
 
 	axiosNode.forEach(obj => {
-		let xcoord = Math.abs(obj.x)
-		let ycoord = Math.abs(obj.y)
+		let xcoord = (obj.x)
+		let ycoord = (obj.y)
 
 		node = {id:`${i}`,
 				type: isCenterNode(i),
 				data: {label:`node ${i}`},
-				position: {x:`${xcoord}`,y:`${ycoord}`},
+				position: {x:xcoord,y:ycoord},
 				style : getStyle(obj.size)
 				}
 		nodeArray[k] = node;
@@ -89,10 +83,13 @@ function Flow(props) {
 	const onNodeClick = (event, node) => console.log(node);
 
 	return (
-		<div style={{height:"500px"}}>
+		<div style={{height:"800px"}}>
 			<button style={{marginBottom:"10px"}} onClick={() => {
 				setNodes(createNodes(props.nodes))
 			}}>Update Nodes</button>
+			<button style={{marginBottom:"10px"}} onClick={() => {
+				setEdges(createEdges(nodes))
+			}}>Update Edges</button>
 		<ReactFlow
 			nodes={nodes}
 			edges={edges}
