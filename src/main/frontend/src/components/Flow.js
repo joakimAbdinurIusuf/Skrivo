@@ -5,7 +5,13 @@ import "./Dashboard.css";
 
 
 const initialNodes = [];
-const initialEdges = [];
+const initialEdges = [
+	{
+		id: "e1-2",
+		source: "1",
+		target: "2"
+	}
+]
 
 function createEdges(nodes) {
 	const edgeArray = [];
@@ -21,6 +27,7 @@ function createEdges(nodes) {
 				id: `e${centerNodeID}-${i}`,
 				source: `${centerNodeID}`,
 				target: `${i}`,
+				type: 'straight',
 				style: {stroke:"black"}
 			}
 			edgeArray[k] = edge;
@@ -39,17 +46,18 @@ function createNodes(axiosNode) {
 	const nodeArray = [];
 	let node = {};
 	let i = 1;
+	let k = 0;
 	function isCenterNode(i) {
-		if (i === 1) return "input";
-		else return "output";
+		if (i === 1) return 'input';
+		else return 'output';
 	}
 
 	function getStyle(size) {
 		return {
-			width: size*300,
-			height: size*300,
-			borderRadius: size*300,
-			fontSize: size*70,
+			width: Math.round(size*300),
+			height: Math.round(size*300),
+			borderRadius: Math.round(size*300),
+			fontSize: Math.round(size*70),
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "center"
@@ -57,15 +65,20 @@ function createNodes(axiosNode) {
 	}
 
 	axiosNode.forEach(obj => {
+		let xcoord = Math.abs(obj.x)
+		let ycoord = Math.abs(obj.y)
+
 		node = {id:`${i}`,
 				type: isCenterNode(i),
 				data: {label:`node ${i}`},
-				position: {x:`${obj.x}`,y:`${obj.y}`},
+				position: {x:`${xcoord}`,y:`${ycoord}`},
 				style : getStyle(obj.size)
 				}
-		nodeArray[i] = node;
+		nodeArray[k] = node;
+		k++;
 		i++;
 	})
+	console.log("node arr",nodeArray);
 	return nodeArray;
 }
 
@@ -79,7 +92,6 @@ function Flow(props) {
 		<div style={{height:"500px"}}>
 			<button style={{marginBottom:"10px"}} onClick={() => {
 				setNodes(createNodes(props.nodes))
-				setEdges(createEdges(props.nodes))
 			}}>Update Nodes</button>
 		<ReactFlow
 			nodes={nodes}
