@@ -1,7 +1,6 @@
 import { Button, Col, Row } from "react-bootstrap";
 import React from "react";
 import Flow from "./Flow";
-import InteractionFlow from "./InteractionFlow";
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 import WordCloud from "./WordCloud";
@@ -18,7 +17,7 @@ class Dashboard extends React.Component {
     super();
     api.get('/nodes').then(res => {
       this.setState({nodes: res.data})
-      console.log(this.state.nodes)
+      console.log("got nodes from axios",res.data)
     })
     api.get('/wordcloud').then(res => {
       this.setState({words: res.data})

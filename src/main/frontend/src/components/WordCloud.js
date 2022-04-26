@@ -200,7 +200,7 @@ const words = [
 
 function WordCloud() {
     const [state, setState] = useState({words:[{text:"HEJ",value:40}]})
-    return <ReactWordcloud words={state.words} options={options}/>
+    return <ReactWordcloud words={words} options={options}/>
 }
 
 export default WordCloud;
