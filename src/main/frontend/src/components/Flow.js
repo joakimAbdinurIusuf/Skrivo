@@ -30,8 +30,6 @@ function createEdges(nodes) {
 		i++;
 	})
 
-	console.log(edgeArray)
-	console.log("-------")
 	return edgeArray;
 }
 
