@@ -10,13 +10,6 @@ Step 4: Run the following command: `npm install`
 Step 5:
 open the website by typing `npm start` in the terminal
 
-# Dependencies
-`
-"@emotion/react": "^11.8.2",
-"@emotion/styled": "^11.8.1",
-"@mui/icons-material": "^5.5.1",
-"@mui/material": "^5.4.3",
-`
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
