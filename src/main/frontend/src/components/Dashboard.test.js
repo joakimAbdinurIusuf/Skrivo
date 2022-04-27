@@ -3,6 +3,10 @@ import Sidebar from "./Sidebar";
 import {render, screen} from "@testing-library/react";
 import Flow from "./Flow";
 
+//Co-author: Wilhelm Öberg
+//Co-author: Alexander Falk
+//Co-author: Johan Maseng
+//Co-author: Joakim Abdinur Iusuf
 
 test("find network graph text", () => {
     const {getByText} = render(<Flow/>);

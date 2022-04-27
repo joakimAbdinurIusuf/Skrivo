@@ -6,6 +6,8 @@ import "./Dashboard.css";
 import WordCloud from "./WordCloud";
 import axios from "axios";
 
+//Co-author: Wilhelm Öberg
+
 const api = axios.create({
   baseURL:'http://localhost:8080/api'
 })

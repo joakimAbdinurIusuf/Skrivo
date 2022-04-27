@@ -5,6 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { SidebarBotData } from './SideBarBotData';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 
+//Author: Alexander Falk
 
 function Sidebar() {
     return (

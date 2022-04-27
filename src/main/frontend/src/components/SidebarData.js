@@ -4,6 +4,7 @@ import FeedIcon from '@mui/icons-material/Feed';
 import PeopleIcon from '@mui/icons-material/People';
 import MessageIcon from '@mui/icons-material/Message';
 
+//Author: Alexander Falk
 
 export const SidebarData = [
     {

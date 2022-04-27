@@ -50,7 +50,7 @@ public class SkrivoApplication {
 							createJSONObject("Fullstack", "2"),
 							createJSONObject("Backend", "4"),
 							createJSONObject("Frontend", "1"),
-							createJSONObject("Databases", "1")
+							createJSONObject("Databases", "1"),
 							createJSONObject("Angular", "10"),
 							createJSONObject("Express", "3"),
 							createJSONObject("Node", "1"),
@@ -78,7 +78,7 @@ public class SkrivoApplication {
 							createJSONObject("Stanford", "2"),
 							createJSONObject("UCLA", "4"),
 							createJSONObject("Cambridge", "1"),
-							createJSONObject("Oxford", "1")
+							createJSONObject("Oxford", "1"),
 							createJSONObject("SU", "10"),
 							createJSONObject("Lancaster", "3"),
 							createJSONObject("Manchester University", "1"),
@@ -106,7 +106,7 @@ public class SkrivoApplication {
 							createJSONObject("Books", "2"),
 							createJSONObject("Backend", "4"),
 							createJSONObject("Frontend", "1"),
-							createJSONObject("Databases", "1")
+							createJSONObject("Databases", "1"),
 							createJSONObject("Angular", "10"),
 							createJSONObject("Express", "3"),
 							createJSONObject("Node", "1"),

@@ -3,6 +3,9 @@ import ReactFlow , {useNodesState,
 	useEdgesState,Controls} from "react-flow-renderer";
 import "./Dashboard.css";
 
+//Co-author: Wilhelm Öberg
+//Co-author: Johan Maseng
+
 function createEdges(nodes) {
 	const edgeArray = [];
 	let edge = {};
@@ -61,7 +64,7 @@ function createNodes(axiosNode) {
 				data: {label:`node ${i}`},
 				position: {x:xcoord,y:ycoord},
 				style : getStyle(obj.size),
-				words : obj.words
+				words : obj.wordsAndFrequencies,
 				}
 		nodeArray[k] = node;
 		k++;
