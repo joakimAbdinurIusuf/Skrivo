@@ -94,8 +94,8 @@ public class SkrivoApplication {
 			graphNodeRepository.insert(graphNode1);
 
 			GraphNode graphNode2 = new GraphNode(
-					0.3,
-					0,
+					rangeMinSize + (rangeMaxSize - rangeMinSize) * random.nextDouble(),
+					rangeMinDistance + (rangeMaxDistance - rangeMinDistance) * random.nextDouble(),
 					rangeMinAngle + (rangeMaxAngle - rangeMinAngle) * random.nextDouble(),
 					List.of(createJSONObject("YouTube", "10"),
 							createJSONObject("Medium", "3"),
