@@ -16,7 +16,7 @@ public class GraphNodeService {
 
     public List<GraphNode> getAllNodes() {
         Query query = new Query();
-        query.fields().exclude("words").exclude("wordFrequency");
+        query.fields();
         List<GraphNode> graphNodes = mongoTemplate.find(query, GraphNode.class);
         return graphNodes;
     }
