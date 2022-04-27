@@ -45,6 +45,7 @@
 .Navigation-button {
   margin: 15px;
   border: 1px solid black;
+  background-color: #5695E3;
 }
 
 .Graphs {
@@ -64,7 +65,7 @@
 .react-flow {
   margin: 0;
   position: relative;
-  background-color: rgb(114, 144, 241);
+  background-color: #E6EFFC;
 }
 
 .react-flow__viewport {
