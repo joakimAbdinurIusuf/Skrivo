@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author Edvin Nordling, Joakim Abdinur Iusuf
@@ -20,66 +19,56 @@ public class GraphNode {
     private double size;
     private double x;
     private double y;
-    private List<String> words;
-    private List<Integer> wordFrequency;
+    private List<HashMap<String, String>> wordsAndFrequencies;
 
     /**
      * Constructor without nodeID
      */
-    public GraphNode(double size, double distance, double angle, List<String> words, List<Integer> wordFrequency) {
+    public GraphNode(double size, double distance, double angle, List<HashMap<String, String>> wordsAndFrequencies) {
         this.size = size;
         x = Math.cos(angle) * distance * 100;
         y = Math.sin(angle) * distance * 100;
-        this.words = words;
-        this.wordFrequency = wordFrequency;
+        this.wordsAndFrequencies = wordsAndFrequencies;
     }
 
     public String getId() {
         return id;
     }
 
-    public double getSize() {
-        return size;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public List<String> getWords() {
-        return words;
-    }
-
-    public List<Integer> getWordFrequency() {
-        return wordFrequency;
-    }
-
     public void setId(String id) {
         this.id = id;
+    }
+
+    public double getSize() {
+        return size;
     }
 
     public void setSize(double size) {
         this.size = size;
     }
 
+    public double getX() {
+        return x;
+    }
+
     public void setX(double x) {
         this.x = x;
+    }
+
+    public double getY() {
+        return y;
     }
 
     public void setY(double y) {
         this.y = y;
     }
 
-    public void setWords(List<String> words) {
-        this.words = words;
+    public List<HashMap<String, String>> getWordsAndFrequencies() {
+        return wordsAndFrequencies;
     }
 
-    public void setWordFrequency(List<Integer> wordFrequency) {
-        this.wordFrequency = wordFrequency;
+    public void setWordsAndFrequencies(List<HashMap<String, String>> wordsAndFrequencies) {
+        this.wordsAndFrequencies = wordsAndFrequencies;
     }
 
     @Override
@@ -87,12 +76,12 @@ public class GraphNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GraphNode graphNode = (GraphNode) o;
-        return Double.compare(graphNode.size, size) == 0 && Double.compare(graphNode.x, x) == 0 && Double.compare(graphNode.y, y) == 0 && Objects.equals(id, graphNode.id) && Objects.equals(words, graphNode.words) && Objects.equals(wordFrequency, graphNode.wordFrequency);
+        return Double.compare(graphNode.size, size) == 0 && Double.compare(graphNode.x, x) == 0 && Double.compare(graphNode.y, y) == 0 && Objects.equals(id, graphNode.id) && Objects.equals(wordsAndFrequencies, graphNode.wordsAndFrequencies);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, size, x, y, words, wordFrequency);
+        return Objects.hash(id, size, x, y, wordsAndFrequencies);
     }
 
     @Override
@@ -102,8 +91,7 @@ public class GraphNode {
                 ", size=" + size +
                 ", x=" + x +
                 ", y=" + y +
-                ", words=" + words +
-                ", wordFrequency=" + wordFrequency +
+                ", wordsAndFrequencies=" + wordsAndFrequencies +
                 '}';
     }
 }
