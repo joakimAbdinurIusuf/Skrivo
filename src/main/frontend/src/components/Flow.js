@@ -3,6 +3,8 @@ import ReactFlow , {useNodesState,
 	useEdgesState,Controls} from "react-flow-renderer";
 import "./Dashboard.css";
 
+//Author: Wilhelm Öberg
+
 function createEdges(nodes) {
 	const edgeArray = [];
 	let edge = {};
