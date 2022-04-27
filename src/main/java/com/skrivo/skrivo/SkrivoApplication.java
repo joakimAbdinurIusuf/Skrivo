@@ -52,7 +52,7 @@ public class SkrivoApplication {
 			graphNodeRepository.insert(centerNode);
 
 			GraphNode graphNode1 = new GraphNode(
-					0.3,
+					0.36311161543,
 					0.222,
 					rangeMin + (rangeMax - rangeMin) * random.nextDouble(),
 					List.of(createJSONObject("KTH", "10"),
