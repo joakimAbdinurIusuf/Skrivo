@@ -18,12 +18,11 @@ function Dash() {
   useEffect(() => {
     api.get('/nodes').then(res => {
       setNodes(res.data)
+      console.log(res.data)
     })
-    api.get('/wordcloud').then(res => {
-      setWords(res.data)
+  },[])
 
-    })
-  })
+
 
   return (
     <div className={"Outer-border"}>
@@ -46,7 +45,7 @@ function Dash() {
               </Button>
             </Col>
             <Col className={"Network-graph"}>
-              <Flow nodes={nodes}/>
+              <Flow nodes={nodes} onChange={(words) => setWords(words)}/>
             </Col>
           </Col>
           <Col xl={4} className={"Word-cloud"}>

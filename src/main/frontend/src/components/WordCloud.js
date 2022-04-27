@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactWordcloud from 'react-wordcloud';
+import button from "bootstrap/js/src/button";
 
 const options = {
     rotations: 1,
@@ -7,9 +8,10 @@ const options = {
     fontSizes: [20,70],
 };
 
-function WordCloud() {
-    const [words, setWords] = useState([])
-    return <ReactWordcloud words={words} options={options}/>
+
+function WordCloud(props) {
+    return (
+        <ReactWordcloud words={props.words} options={options}/>)
 }
 
 export default WordCloud;

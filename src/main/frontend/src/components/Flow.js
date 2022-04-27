@@ -3,7 +3,6 @@ import ReactFlow , {useNodesState,
 	useEdgesState,Controls} from "react-flow-renderer";
 import "./Dashboard.css";
 
-
 function createEdges(nodes) {
 	const edgeArray = [];
 	let edge = {};
@@ -53,6 +52,7 @@ function createNodes(axiosNode) {
 		};
 	}
 
+
 	axiosNode.forEach(obj => {
 		let xcoord = (obj.x)
 		let ycoord = (obj.y)
@@ -61,7 +61,8 @@ function createNodes(axiosNode) {
 				type: isCenterNode(i),
 				data: {label:`node ${i}`},
 				position: {x:xcoord,y:ycoord},
-				style : getStyle(obj.size)
+				style : getStyle(obj.size),
+				words : obj.words
 				}
 		nodeArray[k] = node;
 		k++;
@@ -74,8 +75,7 @@ function Flow(props) {
 	const [nodes,setNodes] = useNodesState([]);
 	const [edges,setEdges] = useEdgesState([]);
 	const [captureElementClick] = useState(true);
-	const onNodeClick = (event, node) => console.log(node);
-
+	const onNodeClick = (event, node) => props.onChange(node.words);
 	return (
 		<div style={{height:"800px"}}>
 			<button style={{marginBottom:"10px"}} onClick={() => {
