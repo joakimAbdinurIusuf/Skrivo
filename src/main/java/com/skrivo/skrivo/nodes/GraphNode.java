@@ -2,7 +2,6 @@ package com.skrivo.skrivo.nodes;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,12 +19,12 @@ public class GraphNode {
     private double size;
     private double x;
     private double y;
-    private String[][] wordsAndFrequencies;
+    private List<HashMap<String, String>> wordsAndFrequencies;
 
     /**
      * Constructor without nodeID
      */
-    public GraphNode(double size, double distance, double angle, String[][] wordsAndFrequencies) {
+    public GraphNode(double size, double distance, double angle, List<HashMap<String, String>> wordsAndFrequencies) {
         this.size = size;
         x = Math.cos(angle) * distance * 100;
         y = Math.sin(angle) * distance * 100;
@@ -64,11 +63,11 @@ public class GraphNode {
         this.y = y;
     }
 
-    public String[][] getWordsAndFrequencies() {
+    public List<HashMap<String, String>> getWordsAndFrequencies() {
         return wordsAndFrequencies;
     }
 
-    public void setWordsAndFrequencies(String[][] wordsAndFrequencies) {
+    public void setWordsAndFrequencies(List<HashMap<String, String>> wordsAndFrequencies) {
         this.wordsAndFrequencies = wordsAndFrequencies;
     }
 
@@ -77,14 +76,12 @@ public class GraphNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GraphNode graphNode = (GraphNode) o;
-        return Double.compare(graphNode.size, size) == 0 && Double.compare(graphNode.x, x) == 0 && Double.compare(graphNode.y, y) == 0 && Objects.equals(id, graphNode.id) && Arrays.equals(wordsAndFrequencies, graphNode.wordsAndFrequencies);
+        return Double.compare(graphNode.size, size) == 0 && Double.compare(graphNode.x, x) == 0 && Double.compare(graphNode.y, y) == 0 && Objects.equals(id, graphNode.id) && Objects.equals(wordsAndFrequencies, graphNode.wordsAndFrequencies);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, size, x, y);
-        result = 31 * result + Arrays.hashCode(wordsAndFrequencies);
-        return result;
+        return Objects.hash(id, size, x, y, wordsAndFrequencies);
     }
 
     @Override
@@ -94,7 +91,7 @@ public class GraphNode {
                 ", size=" + size +
                 ", x=" + x +
                 ", y=" + y +
-                ", wordsAndFrequencies=" + Arrays.toString(wordsAndFrequencies) +
+                ", wordsAndFrequencies=" + wordsAndFrequencies +
                 '}';
     }
 }
