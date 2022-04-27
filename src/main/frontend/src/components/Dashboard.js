@@ -7,6 +7,9 @@ import WordCloud from "./WordCloud";
 import axios from "axios";
 
 //Co-author: Wilhelm Öberg
+//Co-author: Johan Maseng
+//Co-author: Alexander Falk
+//Co-author: Joakim Abdinur Iusuf
 
 const api = axios.create({
   baseURL:'http://localhost:8080/api'
