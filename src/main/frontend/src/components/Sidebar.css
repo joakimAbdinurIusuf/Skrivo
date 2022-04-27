@@ -2,7 +2,7 @@
   position: fixed;
   height: 100vh;
   width: 160px;
-  background-color: rgb(192, 208, 241);
+  background-color: #5695E3;
 }
 
 .SidebarList {
@@ -31,7 +31,7 @@
 .SideBarTop {
   position: relative;
   width: 160px;
-  background-color: rgb(192, 208, 241);
+  background-color: #5695E3;
   height: 60px;
 }
 
@@ -44,7 +44,7 @@
 .SideBarBot {
   position: relative;
   width: 160px;
-  background-color: rgb(192, 208, 241);
+  background-color: #5695E3;
   height: 4.5%;
 }
 
@@ -67,7 +67,7 @@
 .sidebar-bottom {
   position: absolute;
   width: 100%;
-  background-color: rgb(192, 208, 241);
+  background-color: #5695E3;
   bottom: 0%;
   height: 45px;
   position: absolute;
