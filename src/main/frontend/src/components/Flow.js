@@ -70,7 +70,6 @@ function createNodes(axiosNode) {
 		k++;
 		i++;
 	})
-	console.log("node arr",nodeArray);
 	return nodeArray;
 }
 
@@ -85,7 +84,7 @@ function Flow(props) {
 			<button style={{marginBottom:"10px"}} onClick={() => {
 				setNodes(createNodes(props.nodes))
 			}}>Update Nodes</button>
-			<button style={{marginBottom:"10px"}} onClick={() => {
+			<button style={{marginBottom:"10px", marginLeft:"5px"}} onClick={() => {
 				setEdges(createEdges(nodes))
 			}}>Update Edges</button>
 		<ReactFlow

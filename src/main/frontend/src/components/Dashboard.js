@@ -1,5 +1,5 @@
 import { Button, Col, Row } from "react-bootstrap";
-import React from "react";
+import React, {createContext} from "react";
 import Flow from "./Flow";
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
@@ -24,6 +24,7 @@ class Dashboard extends React.Component {
       console.log(this.state.words)
     })
   }
+
   render() {
     return (
       <div className={"Outer-border"}>
