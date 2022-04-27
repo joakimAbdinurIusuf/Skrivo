@@ -4,9 +4,6 @@ import ReactFlow , {useNodesState,
 import "./Dashboard.css";
 
 
-const initialNodes = [];
-const initialEdges = [];
-
 function createEdges(nodes) {
 	const edgeArray = [];
 	let edge = {};
@@ -74,8 +71,8 @@ function createNodes(axiosNode) {
 }
 
 function Flow(props) {
-	const [nodes,setNodes] = useNodesState(initialNodes);
-	const [edges,setEdges] = useEdgesState(initialEdges);
+	const [nodes,setNodes] = useNodesState([]);
+	const [edges,setEdges] = useEdgesState([]);
 	const [captureElementClick] = useState(true);
 	const onNodeClick = (event, node) => console.log(node);
 

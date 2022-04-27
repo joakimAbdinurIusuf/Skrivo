@@ -18,7 +18,7 @@ public class SkrivoApplication {
 
 	Random random = new Random();
 	double rangeMin = 0.0;
-	double rangeMax = Math.PI;
+	double rangeMax = 2*Math.PI;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SkrivoApplication.class, args);
