@@ -51,8 +51,7 @@ function createNodes(axiosNode) {
 			justifyContent: "center"
 		};
 	}
-
-
+  
 	axiosNode.forEach(obj => {
 		let xcoord = (obj.x)
 		let ycoord = (obj.y)

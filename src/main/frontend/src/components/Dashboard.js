@@ -22,8 +22,6 @@ function Dash() {
     })
   },[])
 
-
-
   return (
     <div className={"Outer-border"}>
       <Sidebar/>
