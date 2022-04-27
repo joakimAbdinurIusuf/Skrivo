@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import ReactFlow , {useNodesState,
-	useEdgesState,Controls} from "react-flow-renderer";
+import ReactFlow, {
+	useNodesState,
+	useEdgesState, Controls, useReactFlow, ReactFlowProvider
+} from "react-flow-renderer";
 import "./Dashboard.css";
 
 //Co-author: Wilhelm Öberg
@@ -77,9 +79,23 @@ function Flow(props) {
 	const [nodes,setNodes] = useNodesState([]);
 	const [edges,setEdges] = useEdgesState([]);
 	const [captureElementClick] = useState(true);
-	const onNodeClick = (event, node) => props.onChange(node.words);
+	const {zoomIn,zoomOut,setCenter} = useReactFlow();
+
+	const focusNode = (node) => {
+		const x = node.position.x + node.width / 2;
+		const y = node.position.y + node.height / 2;
+		const zoom = 1.85;
+
+		setCenter(x,y,{zoom, duration:1000})
+	}
+
+	const onNodeClick = (event, node) => {
+		props.onChange(node.words)
+		focusNode(node)
+	};
+
 	return (
-		<div style={{height:"800px"}}>
+		<div style={{height:"600px"}}>
 			<button style={{marginBottom:"10px"}} onClick={() => {
 				setNodes(createNodes(props.nodes))
 			}}>Update Nodes</button>
@@ -98,4 +114,12 @@ function Flow(props) {
 	);
 };
 
-export default Flow;
+function FlowWithProvider(props) {
+
+	return (
+		<ReactFlowProvider>
+			<Flow nodes={props.nodes} onChange={props.onChange}/>
+		</ReactFlowProvider>
+	)
+}
+export default FlowWithProvider;

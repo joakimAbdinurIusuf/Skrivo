@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 import WordCloud from "./WordCloud";
 import axios from "axios";
+import FlowWithProvider from "./Flow";
 
 //Co-author: Wilhelm Öberg
 //Co-author: Johan Maseng
@@ -34,21 +35,21 @@ function Dash() {
         <Row>
           <Col>
             <Col className={"Navigation-buttons-column"}>
-              <Button size={"lg"} className={"Navigation-button"}>
+              <Button style={{backgroundColor:"#5695E3",borderColor:"#5695E3"}} size={"lg"} className={"Navigation-button"}>
                 Network
               </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
+              <Button style={{backgroundColor:"#5695E3",borderColor:"#5695E3"}} size={"lg"} className={"Navigation-button"}>
                 Completed tasks
               </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
+              <Button style={{backgroundColor:"#5695E3",borderColor:"#5695E3"}} size={"lg"} className={"Navigation-button"}>
                 Notifications
               </Button>
-              <Button size={"lg"} className={"Navigation-button"}>
+              <Button style={{backgroundColor:"#5695E3",borderColor:"#5695E3"}} size={"lg"} className={"Navigation-button"}>
                 Reports
               </Button>
             </Col>
             <Col className={"Network-graph"}>
-              <Flow nodes={nodes} onChange={(words) => setWords(words)}/>
+              <FlowWithProvider nodes={nodes} onChange={(words) => setWords(words)}/>
             </Col>
           </Col>
           <Col xl={4} className={"Word-cloud"}>
