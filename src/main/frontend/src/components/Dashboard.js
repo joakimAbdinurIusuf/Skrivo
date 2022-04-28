@@ -16,7 +16,7 @@ const api = axios.create({
   baseURL:'http://localhost:8080/api'
 })
 
-function Dash() {
+function Dashboard() {
 
   const [nodes,setNodes] = useState([])
   const [words,setWords] = useState([])
@@ -60,4 +60,4 @@ function Dash() {
     </div>
   );
 }
-export default Dash;
+export default Dashboard;

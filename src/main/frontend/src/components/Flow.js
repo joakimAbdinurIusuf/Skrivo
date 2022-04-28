@@ -11,24 +11,19 @@ import "./Dashboard.css";
 function createEdges(nodes) {
 	const edgeArray = [];
 	let edge = {};
-	let i = 1;
-	let k = 0;
+	let k = 1;
 	let centerNodeID = 0;
 
 	nodes.forEach(obj => {
-		if (i === 1) centerNodeID = i;
-		else {
-			edge = {
-				id: `e${centerNodeID}-${i}`,
-				source: `${centerNodeID}`,
-				target: `${i}`,
-				type: 'straight',
-				style: {stroke:"black"}
-			}
-			edgeArray[k] = edge;
-			k++;
+		edge = {
+			id: `e${centerNodeID}-${k}`,
+			source: `${centerNodeID}`,
+			target: `${k}`,
+			type: 'straight',
+			style: {stroke:"black"}
 		}
-		i++;
+		edgeArray[k] = edge;
+		k++;
 	})
 
 	return edgeArray;
@@ -38,10 +33,10 @@ function createNodes(axiosNode) {
 
 	const nodeArray = [];
 	let node = {};
-	let i = 1;
+	let i = 0;
 	let k = 0;
 	function isCenterNode(i) {
-		if (i === 1) return 'input';
+		if (i === 0) return 'input';
 		else return 'output';
 	}
 
@@ -56,7 +51,13 @@ function createNodes(axiosNode) {
 			justifyContent: "center"
 		};
 	}
-  
+
+	function getWords(wordsAndFrequencies, i) {
+		if (i === 0) return [{text:"",value:1}]
+		else return wordsAndFrequencies;
+
+	}
+
 	axiosNode.forEach(obj => {
 		let xcoord = (obj.x)
 		let ycoord = (obj.y)
@@ -66,7 +67,7 @@ function createNodes(axiosNode) {
 				data: {label:`node ${i}`},
 				position: {x:xcoord,y:ycoord},
 				style : getStyle(obj.size),
-				words : obj.wordsAndFrequencies,
+				words : getWords(obj.wordsAndFrequencies,i),
 				}
 		nodeArray[k] = node;
 		k++;
