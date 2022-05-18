@@ -1,6 +1,5 @@
 import { Button, Col, Row } from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-import Flow from "./Flow";
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 import WordCloud from "./WordCloud";
@@ -12,6 +11,14 @@ import FlowWithProvider from "./Flow";
 //Co-author: Alexander Falk
 //Co-author: Joakim Abdinur Iusuf
 
+// This is the main component that contains the entire webapp.
+// It uses the react-bootstrap grid system for layouting.
+// React-Flow for the network graph component
+// React-wordcloud for the wordcloud.
+
+// We are using functional components & hooks to handle the state of different components.
+// This is the preferred way of using react since version 16.
+
 const api = axios.create({
   baseURL:'http://localhost:8080/api'
 })
@@ -21,10 +28,11 @@ function Dashboard() {
   const [nodes,setNodes] = useState([])
   const [words,setWords] = useState([])
 
+  // useEffect will execute once, at the initial render of the Dashboard component
+  // nodes are fetched from http://localhost:8080/api/nodes and put in the nodes via setNodes
   useEffect(() => {
     api.get('/nodes').then(res => {
       setNodes(res.data)
-      console.log(res.data)
     })
   },[])
 
