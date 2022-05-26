@@ -3,12 +3,15 @@ Step 1: Install Node.js for your OS
 
 Step 2: Clone repo
 
-Step 3: Open a terminal and navigate to scr/main/frontend/src
+Step 3: Open a terminal and navigate to scr/main/frontend
 
 Step 4: Run the following command: `npm install`
 
-Step 5:
-open the website by typing `npm start` in the terminal
+Step 5: Open the website by typing `npm start` in the terminal
+
+# How the Backend Was Built
+
+This tutorial was the main source of information used when building the backend, so watching it will give an understanding of the code and the code structure: https://www.youtube.com/watch?v=ssj0CGxv60k
 
 # Getting Started with Create React App
 
