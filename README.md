@@ -1,13 +1,23 @@
 # HOW TO START THE WEBSITE
-Step 1: Install Node.js for your OS
+Step 1: Install Node.js for your OS.
 
-Step 2: Clone repo
+Step 2: Install Docker for your OS.
 
-Step 3: Open a terminal and navigate to scr/main/frontend
+Step 3: Clone the repo.
 
-Step 4: Run the following command: `npm install`
+Step 4: Once Docker is installed, open the app (desktop version of Docker).
 
-Step 5: Open the website by typing `npm start` in the terminal
+Step 5: In the root directory, navigate to docker-compose.yaml and run "services".
+
+Step 6: Navigate to src/main/java and run the main method. Every time the main method is run, 31 nodes are inserted into the graph. The GUI for the database can be found at localhost:8081.
+
+Step 7: Open a terminal and navigate to scr/main/frontend.
+
+Step 8: Run the following command: "npm install". If this results in error messages, run "npm install --force" instead.
+
+Step 9: Open the website by typing `npm start` in the terminal.
+
+Step 10: Click "Update Nodes" and "Update Edges". You should now have a graph and be able to generate a word cloud when you press on a node.
 
 # How the Backend Was Built
 
